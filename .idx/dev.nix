@@ -4,13 +4,15 @@
   packages = [
     pkgs.nodejs_20     # Incluye npm y npx
     pkgs.supabase-cli  # Instala la CLI de Supabase directamente en el entorno
+    pkgs.shadcn
+    pkgs.tailwindcss
   ];
 
   idx.extensions = [
     "svelte.svelte-vscode" # Asumo que usas Svelte con Vite por la extensión
     "vue.volar"            # O Vue? Asegúrate de que las extensiones coincidan con tu framework
-    # "dbaeumer.vscode-eslint" # Considera añadir ESLint
-    # "esbenp.prettier-vscode" # Considera añadir Prettier
+    "dbaeumer.vscode-eslint" # Considera añadir ESLint
+    "esbenp.prettier-vscode" # Considera añadir Prettier
   ];
 
   # Configuración de vista previa (sin cambios)
@@ -46,6 +48,8 @@
     onStart = {
       # Muestra versiones
       show-versions = "node -v && npm -v && supabase -v";
+      dependencias = "pnpm add class-variance-authority clsx tailwind-merge lucide-react tw-animate-css";
+      shadcn = "npx shadcn@latest init";
     };
   };
 }
